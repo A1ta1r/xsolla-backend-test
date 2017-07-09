@@ -42,8 +42,6 @@ class HttpRequestHandler
             default: http_response_code(404);
         }
         http_response_code(403);
+        exit('file does not exist');
     }
 }
-
-$handler = new HttpRequestHandler();
-echo $handler->HandleRequest();

@@ -45,6 +45,3 @@ class HttpRequestHandler
         exit('file does not exist');
     }
 }
-
-$handler = new HttpRequestHandler();
-echo $handler->HandleRequest();

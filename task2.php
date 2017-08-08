@@ -18,6 +18,9 @@ class MostVisitorsTimeFinder
     #И этот интервал в формате 'G:i'-'G:i' O(n^2) :((((((.
     public function findMostVisitorsTime($pairsArray)
     {
+        if (count($pairsArray)< 2){
+            return '0';
+        }
         array_splice($pairsArray, 0, 1);
         $ins = array();
         $outs = array();

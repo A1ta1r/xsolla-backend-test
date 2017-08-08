@@ -19,6 +19,9 @@ class RepeatingWordsFinder
     #Вернет ее. Иначе функция вернет false. O(n^2) :(((((((
     public function findRepeatingWords($wordsArray)
     {
+        if (count($wordsArray)< 2){
+            return false;
+        }
         array_splice($wordsArray, 0, 1);
         $repeatingWords = array();
         foreach ($wordsArray as $word) {

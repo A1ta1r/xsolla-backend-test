@@ -6,6 +6,8 @@
  * Time: 15:18
  */
 
+namespace Xsolla_summer_school\Tasks;
+
 class RepeatingWordsFinder
 {
     #Выводит строку, из которой состоят все слова аргумента или false,
@@ -22,9 +24,9 @@ class RepeatingWordsFinder
         foreach ($wordsArray as $word) {
             $divs = array(1, strlen($word));
             for ($i = 2; $i < strlen($word) / 2 + 1; $i++)
-                if (strlen($word) % $i == 0)
+                if (strlen($word) % $i == 0) {
                     $divs[] = $i;
-
+                }
             $k = 0;
             while ($k < count($divs)) {
                 $i = strlen($word) / $divs[$k++];
@@ -34,12 +36,11 @@ class RepeatingWordsFinder
                 }
             }
         }
-        if (in_array(count($wordsArray), $repeatingWords))
+        if (in_array(count($wordsArray), $repeatingWords)) {
             return array_search(count($wordsArray), $repeatingWords);
-        else
+        }
+        else {
             return false;
+        }
     }
 }
-
-$finder = new RepeatingWordsFinder();
-echo $finder->findRepeatingWords($argv), "\n";

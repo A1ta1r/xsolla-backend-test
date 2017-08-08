@@ -6,6 +6,8 @@
  * Time: 15:18
  */
 
+namespace Xsolla_summer_school\Tasks;
+
 class MostVisitorsTimeFinder
 {
     #Функция парсит строку в объекты DateTime и сравнивает их.
@@ -19,44 +21,32 @@ class MostVisitorsTimeFinder
         array_splice($pairsArray, 0, 1);
         $ins = array();
         $outs = array();
-
         #Парсинг строки-аргумента в массивы DateTime
-        foreach ($pairsArray as $pair)
-        {
+        foreach ($pairsArray as $pair) {
             $inAndOut = explode('-', $pair);
             $in = DateTime::createFromFormat('G:i', $inAndOut[0]);
             $out = DateTime::createFromFormat('G:i', $inAndOut[1]);
             $ins[] = $in;
             $outs[] = $out;
         }
-
         $maxVisitors = 0;
         $maxTimeIn = new DateTime();
         $minTimeOut = new DateTime();
-
-        #
-        for ($i = 0; $i < count($outs); $i++)
-        {
+        for ($i = 0; $i < count($outs); $i++) {
             $visitors = 0;
             $inTime = new DateTime();
-            for ($j = 0; $j < count($ins); $j++)
-            {
-                if ($ins[$j] < $outs[$i] && $outs[$j] >= $outs[$i])
-                {
+            for ($j = 0; $j < count($ins); $j++) {
+                if ($ins[$j] < $outs[$i] && $outs[$j] >= $outs[$i]) {
                     $visitors++;
                     $inTime = $ins[$j];
                 }
             }
-            if ($maxVisitors < $visitors)
-            {
+            if ($maxVisitors < $visitors) {
                 $maxVisitors = $visitors;
                 $maxTimeIn = $inTime;
                 $minTimeOut = $outs[$i];
             }
         }
-        return $maxVisitors.' '.$maxTimeIn->format('G:i').'-'.$minTimeOut->format('G:i');
+        return $maxVisitors . ' ' . $maxTimeIn->format('G:i') . '-' . $minTimeOut->format('G:i');
     }
 }
-
-$finder = new MostVisitorsTimeFinder();
-echo $finder->findMostVisitorsTime($argv), "\n";

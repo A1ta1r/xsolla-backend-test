@@ -1,4 +1,7 @@
 {
     "name": "root/php-backend",
-    "require": {}
+    "require": {},
+    "require-dev": {
+        "phpunit/phpunit": "^6.3"
+    }
 }

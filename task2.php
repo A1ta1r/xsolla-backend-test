@@ -17,7 +17,7 @@ class MostVisitorsTimeFinder
     #И меньше или равно времени ухода k-того человека, то их время пересекается
     #В max(in)-min(out).
     #Функция возвращает наибольшее число посетителей музея в один интервал времени
-    #И этот интервал в формате 'G:i'-'G:i' O(n^2) :((((((.
+    #И этот интервал в формате 'G:i'-'G:i'.
     public function findMostVisitorsTime($pairs)
     {
         $pairsArray = explode(' ', $pairs);

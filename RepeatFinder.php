@@ -6,9 +6,9 @@
  * Time: 15:18
  */
 
-namespace Xsolla_summer_school\Tasks;
+namespace Xsolla_summer_school;
 
-class RepeatingWordsFinder
+class RepeatFinder
 {
     #Выводит строку, из которой состоят все слова аргумента или false,
     #Если общей такой подстроки у слов не существует.
@@ -17,7 +17,7 @@ class RepeatingWordsFinder
     #Для 'abcabc' такие подстроки — 'abc', 'abcabc'.
     #Если в каждом слове была найдена одинаковая подстрока, функция
     #Вернет ее. Иначе функция вернет false.
-    public function findRepeatingWords($words)
+    public function findRepeats($words)
     {
         $wordsArray = explode(' ',$words);
         $repeatingWords = array();

@@ -6,11 +6,11 @@
  * Time: 15:18
  */
 
-namespace Xsolla_summer_school\Tasks;
+namespace Xsolla_summer_school;
 
 use DateTime;
 
-class MostVisitorsTimeFinder
+class TimeFinder
 {
     #Функция парсит строку в объекты DateTime и сравнивает их.
     #Если время ухода i-того человека больше времени прихода k-того человека
@@ -18,7 +18,7 @@ class MostVisitorsTimeFinder
     #В max(in)-min(out).
     #Функция возвращает наибольшее число посетителей музея в один интервал времени
     #И этот интервал в формате 'G:i'-'G:i'.
-    public function findMostVisitorsTime($pairs)
+    public function findTime($pairs)
     {
         $pairsArray = explode(' ', $pairs);
         $ins = array();

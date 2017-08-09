@@ -17,12 +17,9 @@ class RepeatingWordsFinder
     #Для 'abcabc' такие подстроки — 'abc', 'abcabc'.
     #Если в каждом слове была найдена одинаковая подстрока, функция
     #Вернет ее. Иначе функция вернет false. O(n^2) :(((((((
-    public function findRepeatingWords($wordsArray)
+    public function findRepeatingWords($words)
     {
-        if (count($wordsArray)< 2){
-            return false;
-        }
-        array_splice($wordsArray, 0, 1);
+        $wordsArray = explode(' ',$words);
         $repeatingWords = array();
         foreach ($wordsArray as $word) {
             $divs = array(1, strlen($word));

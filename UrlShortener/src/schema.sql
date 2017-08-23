@@ -1,0 +1,32 @@
+CREATE DATABASE IF NOT EXISTS UrlShortenerDB;
+
+USE UrlShortenerDB;
+
+CREATE TABLE IF NOT EXISTS Users (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  username VARCHAR(32) NOT NULL UNIQUE,
+  passhash BINARY(60) NOT NULL,
+  link_count INT UNSIGNED NOT NULL DEFAULT 0,
+  PRIMARY KEY (id),
+  INDEX idx_username(username)
+);
+
+CREATE TABLE IF NOT EXISTS Links (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  user_id INT UNSIGNED NOT NULL,
+  full_link VARCHAR(256) NOT NULL,
+  short_link VARCHAR(8) NOT NULL UNIQUE,
+  click_count INT UNSIGNED NOT NULL DEFAULT 0,
+  FOREIGN KEY (user_id) REFERENCES Users(id) ON DELETE CASCADE,
+  PRIMARY KEY (id),
+  INDEX idx_user_id(user_id)
+);
+
+CREATE TABLE IF NOT EXISTS Clicks (
+  id INT UNSIGNED NOT NULL AUTO_INCREMENT,
+  link_id INT UNSIGNED NOT NULL,
+  click_time TIMESTAMP NOT NULL,
+  FOREIGN KEY (link_id) REFERENCES Links(id) ON DELETE CASCADE,
+  PRIMARY KEY (id),
+  INDEX idx_link_id_click_time(link_id, click_time)
+)

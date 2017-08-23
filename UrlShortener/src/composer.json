@@ -1,0 +1,12 @@
+{
+  "name": "UrlShortener",
+  "require-dev": {
+    "phpunit/phpunit": "^6.3"
+  },
+  "require": {
+    "silex/silex": "^2.2"
+  },
+  "autoload": {
+    "psr-4:": {"UrlShortener\\": "src/"}
+  }
+}
